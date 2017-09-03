@@ -19,3 +19,7 @@ See also: [MetaFont](https://en.wikipedia.org/wiki/Metafont), [Metaflop - intera
   ![deeper](deeper/deep100.png)
 
 7. [Make-Taeuber-Arp](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Make-Taeuber-Arp.ipynb): An art-generator in the style of Sophie Taeuber-Arp.... inspired by her [Google Doodle](https://www.google.com/doodles/sophie-taeuber-arps-127th-birthday).
+
+8. [Caustics Animation in numpy](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Caustic%20Animation.ipynb) Here we attempt to render the effect of light rays refracting through a water surface perturbed by waves.
+  ![caustic](caustic.png)
+  
