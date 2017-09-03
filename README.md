@@ -14,6 +14,8 @@
    ![E](fontvolve/fontE.png)
 
 6. [deeperfont](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/deeperfont.ipynb): Neural Network attempt at the font problem.  Using [Keras](https://keras.io/) and [Tensorflow](https://www.tensorflow.org/), my small network attempts to capture the structure of a set of letters and numbers from a single font.  
-See also: [MetaFont](https://en.wikipedia.org/wiki/Metafont) [Metaflop - interactive MetaFont](http://www.metaflop.com/modulator)
+See also: [MetaFont](https://en.wikipedia.org/wiki/Metafont), [Metaflop - interactive MetaFont](http://www.metaflop.com/modulator)
   ![deeper](deeper/deep1.png)
   ![deeper](deeper/deep100.png)
+
+7. [Make-Taeuber-Arp](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Make-Taeuber-Arp.ipynb): An art-generator in the style of Sophie Taeuber-Arp.... inspired by her [Google Doodle](https://www.google.com/doodles/sophie-taeuber-arps-127th-birthday).
