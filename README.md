@@ -7,7 +7,7 @@
     * [Pan - Functional Images](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master//Pan%20-%20Functional%20Images.ipynb): A Python version of "A renderer for Functional Images" from  http://web.archive.org/web/20100401011117/http://conal.net/papers/functional-images/fop-conal.pdf 
 
     * [Checkerball Functional Image](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Checkerball%20Functional%20Image.ipynb): Code golf-ish attempt to generate this image in the shortest number of lines of Python:  
-   ![Checkball postmark](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/checkerBall%20postmark.jpg)
+   ![Checkball postmark](checkerBall%20postmark.jpg)
 
     * [Herringbone pattern](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Herringbone.ipynb): make a herringbone tiled pattern.  
     ![herringbone](herringbone.png)
