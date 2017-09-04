@@ -8,8 +8,8 @@ a. [Pan - Functional Images](http://nbviewer.jupyter.org/github/terryspitz/ipyth
 b. [Checkerball Functional Image](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Checkerball%20Functional%20Image.ipynb): Code golf-ish attempt to generate this image in the shortest number of lines of Python:  
    ![Checkball postmark](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/checkerBall%20postmark.jpg)
 
-c. [Herringbone pattern](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/herringbone.ipynb): make a herringbone tiled pattern.  
-    ![herringbone][Herringbone.png]
+c. [Herringbone pattern](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Herringbone.ipynb): make a herringbone tiled pattern.  
+    ![herringbone][herringbone.png]
 
 4. [Temperature](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/Temperature.ipynb): My dad went away for Xmas with his heating on the blink, asking me to check the house every day.  What better excuse for an IoT internet connected thermometer!  Based on an ESP8266 and instruction at http://www.instructables.com/id/Temperature-Monitor-with-ESP8266-IoT/.  Took a few hours to build the hardware and IoT site upload of the temperature data.  Took another much more frustrating few hours to upload the single line of Python in this notebook to an Azure site.  
    ![IoT](IoT.jpg)
