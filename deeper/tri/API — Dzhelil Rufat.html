@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://rufat.be/triangle/API.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API — Dzhelil Rufat</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="https://rufat.be/_static/favicon.ico">
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="./API — Dzhelil Rufat_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./API — Dzhelil Rufat_files/pygments.css" type="text/css">
+    <link rel="author" title="About these documents" href="https://rufat.be/about.html">
+    <link rel="index" title="Index" href="https://rufat.be/genindex.html">
+    <link rel="search" title="Search" href="https://rufat.be/search.html">
+    <link rel="next" title="Data" href="https://rufat.be/triangle/data.html">
+    <link rel="prev" title="Installation" href="https://rufat.be/triangle/installing.html"> 
+
+  
+  <script src="./API — Dzhelil Rufat_files/modernizr.min.js.download"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://rufat.be/index.html" class="icon icon-home"> Dzhelil Rufat
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://rufat.be/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://rufat.be/about.html">About</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="https://rufat.be/code.html"><span class="toctree-expand"></span>Code</a><ul class="">
+<li class="toctree-l2"><a class="reference internal" href="https://rufat.be/licpy/index.html">LicPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rufat.be/quadrature/index.html">Quadrature</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="https://rufat.be/triangle/index.html"><span class="toctree-expand"></span>Triangle</a><ul class="">
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/installing.html">Installation</a></li>
+<li class="toctree-l3 current"><a class="reference internal current" href="https://rufat.be/triangle/API.html#">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/data.html">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/definitions.html">Definitions (of several geometric terms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/delaunay.html">Generating Delaunay Triangulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/quality.html">Quality Meshing: Angle and Size Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/refine.html">Refining Preexisting Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/convex.html">Convex Hulls and Mesh Boundaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://rufat.be/triangle/voronoi.html">Voronoi Diagrams</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rufat.be/posts.html">Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rufat.be/publications.html">Publications</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://rufat.be/index.html">Dzhelil Rufat</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://rufat.be/index.html">Docs</a> »</li>
+        
+          <li><a href="https://rufat.be/code.html">Code</a> »</li>
+        
+          <li><a href="https://rufat.be/triangle/index.html">Triangle</a> »</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="https://rufat.be/triangle/API.html#api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="triangle.triangulate">
+<code class="descclassname">triangle.</code><code class="descname">triangulate</code><span class="sig-paren">(</span><em>tri</em>, <em>opts=''</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/tri.html#triangulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.triangulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform triangulation on the input data <cite>tri</cite>. <cite>tri</cite> must be a dictionary
+that contains the following keys:</p>
+<ul class="simple">
+<li><cite>vertices</cite> - 2-D array that stores the xy position of each vertex</li>
+<li><cite>segments</cite> - optional 2-D array that stores segments. Segments are edges whose presence in the triangulation is enforced (although each segment may be subdivided into smaller edges). Each segment is specified by listing the indices of its two endpoints.</li>
+<li><cite>holes</cite> - optional 2-D array that stores holes. Holes are specified by identifying a point inside each hole. After the triangulation is formed, Triangle creates holes by eating triangles, spreading out from each hole point until its progress is blocked by PSLG segments; you must be careful to enclose each hole in segments, or your whole triangulation might be eaten away. If the two triangles abutting a segment are eaten, the segment itself is also eaten. Do not place a hole directly on a segment; if you do, Triangle will choose one side of the segment arbitrarily.</li>
+<li><cite>regions</cite> - optional 2-D array that stores region attributes and areas.</li>
+</ul>
+<p>The second (optional) arguments lists the options that should be passed to triangle:</p>
+<ul class="simple">
+<li><cite>p</cite> - Triangulates a Planar Straight Line Graph.</li>
+<li><cite>r</cite> - Refines a previously generated mesh.</li>
+<li><cite>q</cite> - Quality mesh generation with no angles smaller than 20 degrees. An alternate minimum angle may be specified after the <cite>q</cite>.</li>
+<li><cite>a</cite> - Imposes a maximum triangle area constraint. A fixed area constraint (that applies to every triangle) may be specified after the <cite>a</cite>, or varying areas may be read from the input dictionary.</li>
+<li><cite>c</cite> - Encloses the convex hull with segments.</li>
+<li><cite>D</cite> - Conforming Delaunay: use this switch if you want all triangles in the mesh to be Delaunay, and not just constrained Delaunay; or if you want to ensure that all Voronoi vertices lie within the triangulation.</li>
+<li><cite>X</cite> - Suppresses exact arithmetic.</li>
+<li><cite>S</cite> - Specifies the maximum number of added Steiner points.</li>
+<li><cite>i</cite> - Uses the incremental algorithm for Delaunay triangulation, rather than the divide-and-conquer algorithm.</li>
+<li><cite>F</cite> - Uses Steven Fortune’s sweepline algorithm for Delaunay triangulation, rather than the divide-and-conquer algorithm.</li>
+<li><cite>l</cite> - Uses only vertical cuts in the divide-and-conquer algorithm. By default, Triangle uses alternating vertical and horizontal cuts, which usually improve the speed except with vertex sets that are small or short and wide. This switch is primarily of theoretical interest.</li>
+<li><cite>s</cite> - Specifies that segments should be forced into the triangulation by recursively splitting them at their midpoints, rather than by generating a constrained Delaunay triangulation. Segment splitting is true to Ruppert’s original algorithm, but can create needlessly small triangles. This switch is primarily of theoretical interest.</li>
+<li><cite>C</cite> - Check the consistency of the final mesh. Uses exact arithmetic for checking, even if the -X switch is used. Useful if you suspect Triangle is buggy.</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">triangulate</span><span class="p">({</span><span class="s1">'vertices'</span><span class="p">:</span> <span class="n">v</span><span class="p">},</span> <span class="s1">'a0.2'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s1">'vertices'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0], [0.5, 0.5], [0.0, 0.5], [0.5, 0.0], [1.0, 0.5], [0.5, 1.0]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s1">'vertex_markers'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[1], [1], [1], [1], [0], [1], [1], [1], [1]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s1">'triangles'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[7, 2, 4], [5, 0, 4], [4, 8, 1], [4, 1, 5], [4, 0, 6], [6, 3, 4], [4, 3, 7], [4, 2, 8]]</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="../_images/api_triangulate.png" src="./API — Dzhelil Rufat_files/api_triangulate.png">
+<p class="caption"><span class="caption-text">[<a class="reference download internal" download="" href="https://rufat.be/_downloads/806dcf94ae61d36fb93e07814431beb5/api_triangulate.py"><code class="xref download docutils literal notranslate"><span class="pre">py</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/edcd0ac2c08e8ef13c48adbded7bd4b3/api_triangulate.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/fbfc9d156a54b883b1702ee3fdfece8f/api_triangulate.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/4c59ee55fc30fffde72898daedbea58d/api_triangulate.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>]</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.convex_hull">
+<code class="descclassname">triangle.</code><code class="descname">convex_hull</code><span class="sig-paren">(</span><em>pts</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/tri.html#convex_hull"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.convex_hull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the convex hull enclosing <cite>pts</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">segments</span> <span class="o">=</span> <span class="n">convex_hull</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">segments</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[3, 0], [2, 3], [1, 2], [0, 1]]</span>
+</pre></div>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/api_convex_hull.png" src="./API — Dzhelil Rufat_files/api_convex_hull.png">
+<p class="caption"><span class="caption-text">[<a class="reference download internal" download="" href="https://rufat.be/_downloads/8feb80861227c06577b4d78896bf8e1f/api_convex_hull.py"><code class="xref download docutils literal notranslate"><span class="pre">py</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/ba2008b7d3f29b8a49b349b9bc0fc692/api_convex_hull.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/ef9008a2e71e76b068d5c7a3731ec474/api_convex_hull.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/ad4ad0c87243df881e1cff7d9aa1e309/api_convex_hull.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>]</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.delaunay">
+<code class="descclassname">triangle.</code><code class="descname">delaunay</code><span class="sig-paren">(</span><em>pts</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/tri.html#delaunay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.delaunay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the delaunay triangulation of points <cite>pts</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tri</span> <span class="o">=</span> <span class="n">delaunay</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tri</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[1, 0, 2], [2, 4, 3], [4, 2, 0], [2, 3, 1]]</span>
+</pre></div>
+</div>
+<div class="figure" id="id3">
+<img alt="../_images/api_delaunay.png" src="./API — Dzhelil Rufat_files/api_delaunay.png">
+<p class="caption"><span class="caption-text">[<a class="reference download internal" download="" href="https://rufat.be/_downloads/1cb36873a8fae6fa680991dee55ca3e8/api_delaunay.py"><code class="xref download docutils literal notranslate"><span class="pre">py</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/be678f987ea968384553511432af3f11/api_delaunay.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/f2bccd57e56846555f83c008046f1e36/api_delaunay.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/24d11465de2ef742badc43e4fe4328b8/api_delaunay.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>]</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.voronoi">
+<code class="descclassname">triangle.</code><code class="descname">voronoi</code><span class="sig-paren">(</span><em>pts</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/tri.html#voronoi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.voronoi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the voronoi diagram <cite>pts</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">ray_origin</span><span class="p">,</span> <span class="n">ray_direct</span> <span class="o">=</span> <span class="n">voronoi</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[0.0, 0.5], [1.0, 0.5], [0.5, 0.0], [0.5, 1.0]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">edges</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[0, 2], [0, 3], [1, 2], [1, 3]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ray_origin</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[0, 1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ray_direct</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="go">[[-1.0, 0.0], [1.0, 0.0], [0.0, -1.0], [0.0, 1.0]]</span>
+</pre></div>
+</div>
+<div class="figure" id="id4">
+<img alt="../_images/api_voronoi.png" src="./API — Dzhelil Rufat_files/api_voronoi.png">
+<p class="caption"><span class="caption-text">[<a class="reference download internal" download="" href="https://rufat.be/_downloads/db890ebbcf2bed0284f9fa49ab6f505f/api_voronoi.py"><code class="xref download docutils literal notranslate"><span class="pre">py</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/615b20aa93835ea14feba34069125589/api_voronoi.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/b8a044791210da6a296c7b6265b3a723/api_voronoi.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="https://rufat.be/_downloads/b844b9c95e9eeb4347eeb8f0d0036109/api_voronoi.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>]</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.get_data">
+<code class="descclassname">triangle.</code><code class="descname">get_data</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/data.html#get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data samples provided with the module.
+Examples: A, dots, ell, face, …</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.loads">
+<code class="descclassname">triangle.</code><code class="descname">loads</code><span class="sig-paren">(</span><em>node=None</em>, <em>ele=None</em>, <em>poly=None</em>, <em>area=None</em>, <em>edge=None</em>, <em>neigh=None</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/data.html#loads"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a dictionary representing the triangle data from strings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="triangle.load">
+<code class="descclassname">triangle.</code><code class="descname">load</code><span class="sig-paren">(</span><em>directory</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="https://rufat.be/_modules/triangle/data.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://rufat.be/triangle/API.html#triangle.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a dictionary representing the triangle data from <cite>directory</cite> and <cite>name</cite>.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://rufat.be/triangle/data.html" class="btn btn-neutral float-right" title="Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="https://rufat.be/triangle/installing.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2009-2019, Dzhelil Rufat
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="./API — Dzhelil Rufat_files/documentation_options.js.download"></script>
+        <script type="text/javascript" src="./API — Dzhelil Rufat_files/jquery.js.download"></script>
+        <script type="text/javascript" src="./API — Dzhelil Rufat_files/underscore.js.download"></script>
+        <script type="text/javascript" src="./API — Dzhelil Rufat_files/doctools.js.download"></script>
+        <script type="text/javascript" src="./API — Dzhelil Rufat_files/language_data.js.download"></script>
+    
+
+  
+
+  <script type="text/javascript" src="./API — Dzhelil Rufat_files/theme.js.download"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+
+</body></html>

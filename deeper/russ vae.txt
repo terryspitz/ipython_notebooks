@@ -1,0 +1,213 @@
+Terry Spitz to me
+24 Sep
+Russ Bates [9:43 AM]
+https://cs.corp.google.com/piper///depot/google3/learning/deepmind/research/curriculum/russbates/vae/train.py?dr&g=0 
+might be worth checking out some of the other folders there for insight though
+e.g. marjovsky is the author of one of the most highly cited GAN papers :wink:
+
+https://arxiv.org/abs/1701.07875 
+
+Terry Spitz [9:44 AM]
+ta!
+
+Russ Bates [9:44 AM]
+its good to work at DeepMind
+also this is a good VAE tutorial
+https://jaan.io/what-is-variational-autoencoder-vae-tutorial/ 
+Jaan Altosaar
+Tutorial - What is a variational autoencoder?
+Understanding Variational Autoencoders (VAEs) from two perspectives: deep learning and graphical models.
+
+config.py
+"""Configuration parameters for cifar10_train.py."""
+
+from google3.learning.deepmind.python import collections
+
+
+def get_config():
+  """Returns the default Cifar10 configuration as instance of ConfigDict."""
+
+  config = collections.ConfigDict()
+
+  # Session master.
+  config.master = 'local'
+
+  # Directory for the experiment logs, when running locally.
+  config.logdir = 'tf_logs/'
+
+  # Use batch norm.
+  config.batch_norm = False
+
+  # Training batch size.
+  config.batch_size = 128
+
+  # Learning rate.
+  config.initial_lr = 1e-3
+
+  # Number of training steps.
+  config.training_steps = 20000
+
+  # Number of steps between loss logging.
+  config.report_interval = 1000
+
+  # Number of steps between storing objective value (loss) in measurements.
+  config.measurement_store_interval = 100
+
+  # Number of steps between checkpoints.
+  config.checkpoint_interval = 1000
+
+  # Loss function to optimize for training (options: ["cross_entropy"]).
+  config.loss = 'cross_entropy'
+
+  # Loss function to optimize for training (options: ["adam"]).
+  config.optimizer = 'adam'
+
+  # Dataset to use.
+  config.dataset_name = 'mnist'
+
+  config.hidden_layer_size = 128
+  config.latent_z_n = 2
+  config.experiment_name = 'vae_exp3_zn2'
+
+  return config
+
+model.py
+"""Collection of models for the VAE curriculum task.
+
+An MLP based Encoder and an MLP based Decoder network are both implemented here
+for use in a Variational Auto-Encoder (https://arxiv.org/abs/1312.6114).
+"""
+
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from absl import flags
+import numpy as np
+import sonnet as snt
+import tensorflow as tf
+
+FLAGS = flags.FLAGS
+
+
+class MLPEncoder(snt.AbstractModule):
+  """ MLP style encoder network
+
+  The encoder network maps an input image to some latent space via fully
+  connected layers and ELU activations. The latent space is assumed to be
+  Gaussian and the model outputs the mean and log-variance for each dimension
+  of the latent space.
+
+  """
+
+  def __init__(self, hidden_layer_size=256, latent_space_size=10):
+    super(MLPEncoder, self).__init__()
+    self.hidden_layer_size = hidden_layer_size
+    self.latent_space_size = latent_space_size
+
+  def _build(self, inputs):
+    flat_inputs = snt.BatchFlatten()(inputs)
+    hidden1 = tf.nn.elu(snt.Linear(self.hidden_layer_size)(flat_inputs))
+    hidden2 = tf.nn.elu(snt.Linear(self.hidden_layer_size)(hidden1))
+    latent_mu = snt.Linear(self.latent_space_size)(hidden2)
+    latent_log_var = snt.Linear(self.latent_space_size)(hidden2)
+    return latent_mu, latent_log_var
+
+
+class MLPDecoder(snt.AbstractModule):
+  """ MLP style decoder network
+
+  The decoder network maps a sample from the latent space to an output image v
+  via fully connected layers and ELU activations. The network outputs assumes
+  Bernoulli target pixels and produces logits. Output should be passed through
+  a sigmoid non-linearity to reconstruct the true image.
+
+  """
+
+  def __init__(self, output_image_dims, hidden_layer_size=256):
+    super(MLPDecoder, self).__init__()
+    self.output_image_dims = output_image_dims
+    self.output_image_size = np.prod(output_image_dims)
+    self.hidden_layer_size = hidden_layer_size
+
+  def _build(self, inputs):
+    hidden1 = tf.nn.elu(snt.Linear(self.hidden_layer_size)(inputs))
+    hidden2 = tf.nn.elu(snt.Linear(self.hidden_layer_size)(hidden1))
+    output = snt.Linear(self.output_image_size)(hidden2)
+    output_image = snt.BatchReshape(self.output_image_dims)(output)
+    return output_image
+
+train.py
+"""Training code for Variational Autoencoder task.
+
+Consists of graph construction, database preparation and training logic for the
+curriculum VAE task.
+"""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+import os
+from absl import flags
+from absl import logging
+
+import matplotlib.pyplot as plt
+import numpy as np
+import sonnet as snt
+import tensorflow as tf
+
+from google3.learning.deepmind import bundle
+from google3.learning.deepmind import phoenix
+from google3.learning.deepmind.python import app
+from google3.learning.deepmind.python import config_flags
+from google3.learning.deepmind.research.curriculum.russbates.vae import model
+from google3.learning.deepmind.tensorflow.datasets2 import datasets
+from google3.learning.deepmind.xdata import xdata
+from google3.learning.deepmind.xmanager2.client import xmanager_api
+
+flags.DEFINE_boolean('is_on_borg', False, 'Specify whether job is on borg')
+
+FLAGS = flags.FLAGS
+config_flags.DEFINE_config_file(
+    'config',
+    'learning/deepmind/research/curriculum/russbates/vae/config.py',
+    'Training configuration.')
+flags.DEFINE_string('cell', 'oz', 'Specify which borg cell to use [default=oz]')
+
+NUM_CLASSES = 10
+NUM_TRAIN_EXAMPLES = 60000
+NUM_TEST_EXAMPLES = 10000
+
+
+def build_graph(dataset, summary_sample_size=8):
+  """Construct model outputs, with inputs from the provided dataset.
+
+  Args:
+    dataset (tf.data.Dataset): Dataset instance that provides input images and
+                               target labels.
+    summary_sample_size (int): Number of summary samples to produce for
+                               validation purposes.
+
+  Returns:
+    dict: Dictionary of graph tensors.
+  """
+
+  encoder = model.MLPEncoder(
+      latent_space_size=FLAGS.config.latent_z_n,
+      hidden_layer_size=FLAGS.config.hidden_layer_size)
+  decoder = model.MLPDecoder(
+      [28, 28, 1], hidden_layer_size=FLAGS.config.hidden_layer_size)
+
+  iterator = dataset.make_one_shot_iterator()
+  next_element = iterator.get_next()
+  image = tf.cast(tf.greater(next_element['image'], 0), tf.float32)
+
+  latent_means, latent_log_var = encoder(image)
+  noise = tf.random_normal(latent_means.shape)
+  latent = noise * tf.sqrt(tf.exp(latent_log_var)) + latent_means
+
+  latent_normal = tf.distributions.Normal(
+      loc=latent_means, scale=tf.sqrt(tf.exp(latent_log_var)))
+
+  prior = tf.distributions.Normal(
+      loc=tf.zeros(latent_means.shape), scale=tf.ones(latent_means.shape))
+
+  output_logits = decoder(latent_normal.sample())

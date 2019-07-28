@@ -48,8 +48,9 @@
 			var p3 = reuleaux(i,j+1,k); emit(p3.x, p3.y, p3.z);
 		}
 	})
-	for(var i=-2; i<=2; ++i)
-	for(var j=-2; j<=2; ++j)
+    var numXY=0
+	for(var i=-numXY/2; i<=numXY/2; ++i)
+	for(var j=-numXY/2; j<=numXY/2; ++j)
 		view.transform({position: [-j*3.5, 0, -i*3.5]})
 			.transform({rotation: [(i+1)/Math.PI, 0, (j+2)/5.0]})
 			.face({color: (i==-2 && j==-1 )?0x60B0FF : 0xEEEEEE, shaded: false})

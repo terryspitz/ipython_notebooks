@@ -1,3 +1,7 @@
+import collections
+import copy
+import numpy as np
+
 class TriangleStack(object):
   Element = collections.namedtuple("Element", ["vertex", "triangle_offsets"])
   # vertex: Optional(List[float, 2])
