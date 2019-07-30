@@ -12,7 +12,8 @@
     var mathbox = mathBox({
       plugins: ['core', 'controls', 'cursor'],
       controls: {
-        klass: THREE.OrbitControls
+        klass: THREE.OrbitControls,
+        camera: new THREE.OrthographicCamera(-2, 2, 2, -2, 0.01, 10000),
       },
     });
 	if (mathbox.fallback) throw "WebGL error";
@@ -21,7 +22,7 @@
     three.camera.position.set(0, 2, 0);
     three.renderer.setClearColor(new THREE.Color(0xFFFFFF), 1.0);
 
-	function reuleaux(i, j, k) {
+	function reuleaux(i, j, k, thickness) {
 		var rad = (j / 10.0 - 1) * Math.PI / 3.0
 		//using Polar equation of a curve from https://en.wikipedia.org/wiki/Polar_coordinate_system
 		//R=1, r0=1/sqrt(3) (2/3 height of unit sided equilateral triangle, offset of centre of reuleaux arc)
@@ -38,32 +39,46 @@
         }
         var th = rad + k*Math.PI*2/3 + rot //twist it!
 		//based on parametric equation of a torus
-        var x = Math.sin(-az)* (r * Math.cos(th) - r0 - 0.5)
-        var y = Math.cos(-az)* (r * Math.cos(th) - r0 - 0.5)
-		var z = r*Math.sin(th)
+        var full_radius = r * Math.cos(th) - r0 - 0.5;
+		full_radius = 1.0 + full_radius/25.0*thickness;
+        var x = Math.sin(-az)* full_radius
+        var y = Math.cos(-az)* full_radius
+		var z = r*Math.sin(th)/5
 		return {x: x, y: z, z: y}
 	}
 
 	var view = mathbox.cartesian({scale: [0.1, 0.1, 0.1]})
 	.unit({scale:1000})
-	view.voxel({
-		width: 100, height: 20, depth: 3,
-		items: 4, channels: 3,
-		expr: function (emit, i, j, k, t) {
-			var p0 = reuleaux(i,j,k); emit(p0.x, p0.y, p0.z)
-			var p1 = reuleaux(i+1,j,k); emit(p1.x, p1.y, p1.z);
-			var p2 = reuleaux(i+1,j+1,k); emit(p2.x, p2.y, p2.z);
-			var p3 = reuleaux(i,j+1,k); emit(p3.x, p3.y, p3.z);
+	
+    var numXY=3
+	for(var i=0; i<=0; ++i) 
+	{
+		var thickness = 3;//i+numXY/2+1;
+		view.voxel({
+			width: 100, height: 20, depth: 3,
+			items: 4, channels: 3,
+			expr: function (emit, i, j, k, t) {
+				var p0 = reuleaux(i,j,k,thickness); emit(p0.x, p0.y, p0.z);
+				var p1 = reuleaux(i+1,j,k,thickness); emit(p1.x, p1.y, p1.z);
+				var p2 = reuleaux(i+1,j+1,k,thickness); emit(p2.x, p2.y, p2.z);
+				var p3 = reuleaux(i,j+1,k,thickness); emit(p3.x, p3.y, p3.z);
+			}
+		})
+		for(var j=0; j<=numXY; ++j) {
+			view.transform({scale: [1.5,1.5,1.5], position: [6.0*Math.sin((j-0.5)/numXY*Math.PI/2.0), 0, -i*3.5]})
+				.transform({rotation: [i/numXY*Math.PI, 0, j/numXY*Math.PI/2.0]})
+				.face({color: 0xEEEEEE, shaded: false})
+				.face({color: 0xEEEEEE, shaded: true, opacity: 0.5})
 		}
-	})
-    var numXY=0
-	for(var i=-numXY/2; i<=numXY/2; ++i)
-	for(var j=-numXY/2; j<=numXY/2; ++j)
-		view.transform({position: [-j*3.5, 0, -i*3.5]})
-			.transform({rotation: [(i+1)/Math.PI, 0, (j+2)/5.0]})
-			.face({color: (i==-2 && j==-1 )?0x60B0FF : 0xEEEEEE, shaded: false})
-			.face({color: (i==-2 && j==-1 )?0x60B0FF : 0xEEEEEE, shaded: true, opacity: 0.5})
-
+	}
+	
+	//function exportASCII() {
+	//	var result = exporter.parse( mesh );
+	//	saveString( result, "C:/src/notebooks/dm-logo-ring.stl");
+	//}
+	//function saveString( text, filename ) {
+	//	save( new Blob( [ text ], { type: 'text/plain' } ), filename );
+	//}	
   </script>
 </body>
 </html>
