@@ -62,9 +62,10 @@
 				var p1 = reuleaux(i+1,j,k,thickness); emit(p1.x, p1.y, p1.z);
 				var p2 = reuleaux(i+1,j+1,k,thickness); emit(p2.x, p2.y, p2.z);
 				var p3 = reuleaux(i,j+1,k,thickness); emit(p3.x, p3.y, p3.z);
+				console.log(
 			}
 		})
-		for(var j=0; j<=numXY; ++j) {
+		for(var j=0; j<=0; ++j) {
 			view.transform({scale: [1.5,1.5,1.5], position: [6.0*Math.sin((j-0.5)/numXY*Math.PI/2.0), 0, -i*3.5]})
 				.transform({rotation: [i/numXY*Math.PI, 0, j/numXY*Math.PI/2.0]})
 				.face({color: 0xEEEEEE, shaded: false})
