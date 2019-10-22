@@ -16,11 +16,11 @@
 
     ![IoT](IoT.jpg)
 
-5. [Fontvolve](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/fontvolve.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
+5. <a name="fontvolve"></a>[Fontvolve](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/fontvolve.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
 
     ![E](fontvolve/fontE.png)
 
-6. [deeperfont](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/deeperfont.ipynb): Neural Network attempt at the font problem.  Using [Keras](https://keras.io/) and [Tensorflow](https://www.tensorflow.org/), my small network attempts to capture the structure of a set of letters and numbers from a single font.  
+6. <a name="deeperfont"></a>[deeperfont](http://nbviewer.jupyter.org/github/terryspitz/ipython_notebooks/blob/master/deeperfont.ipynb): Neural Network attempt at the font problem.  Using [Keras](https://keras.io/) and [Tensorflow](https://www.tensorflow.org/), my small network attempts to capture the structure of a set of letters and numbers from a single font.  
 
     ![deeper](deeper/deep1.png)
     ![deeper](deeper/deep100.png)
