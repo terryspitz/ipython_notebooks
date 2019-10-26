@@ -25,7 +25,8 @@ After initial result it became clear that the resulting outlines suffer from a l
 
 This dense representation encodes all points and triangles efficiently which should allow easier training.  Work continues.
 
-!(tri/font26sans-col.png)
+![Triangles](tri/sans2-s.png)
+![TriangleStack](tri/font26sans-col.png)
 
 ## References
 1. [MetaFont](https://en.wikipedia.org/wiki/Metafont)
