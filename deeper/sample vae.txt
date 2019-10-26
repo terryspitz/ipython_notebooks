@@ -1,19 +1,12 @@
-Terry Spitz to me
-24 Sep
-Russ Bates [9:43 AM]
-https://cs.corp.google.com/piper///depot/google3/learning/deepmind/research/curriculum/russbates/vae/train.py?dr&g=0 
+/vae/train.py:
 might be worth checking out some of the other folders there for insight though
 e.g. marjovsky is the author of one of the most highly cited GAN papers :wink:
 
 https://arxiv.org/abs/1701.07875 
 
-Terry Spitz [9:44 AM]
-ta!
-
-Russ Bates [9:44 AM]
-its good to work at DeepMind
 also this is a good VAE tutorial
 https://jaan.io/what-is-variational-autoencoder-vae-tutorial/ 
+
 Jaan Altosaar
 Tutorial - What is a variational autoencoder?
 Understanding Variational Autoencoders (VAEs) from two perspectives: deep learning and graphical models.
@@ -21,7 +14,6 @@ Understanding Variational Autoencoders (VAEs) from two perspectives: deep learni
 config.py
 """Configuration parameters for cifar10_train.py."""
 
-from google3.learning.deepmind.python import collections
 
 
 def get_config():
@@ -154,23 +146,8 @@ import numpy as np
 import sonnet as snt
 import tensorflow as tf
 
-from google3.learning.deepmind import bundle
-from google3.learning.deepmind import phoenix
-from google3.learning.deepmind.python import app
-from google3.learning.deepmind.python import config_flags
-from google3.learning.deepmind.research.curriculum.russbates.vae import model
-from google3.learning.deepmind.tensorflow.datasets2 import datasets
-from google3.learning.deepmind.xdata import xdata
-from google3.learning.deepmind.xmanager2.client import xmanager_api
+...imports
 
-flags.DEFINE_boolean('is_on_borg', False, 'Specify whether job is on borg')
-
-FLAGS = flags.FLAGS
-config_flags.DEFINE_config_file(
-    'config',
-    'learning/deepmind/research/curriculum/russbates/vae/config.py',
-    'Training configuration.')
-flags.DEFINE_string('cell', 'oz', 'Specify which borg cell to use [default=oz]')
 
 NUM_CLASSES = 10
 NUM_TRAIN_EXAMPLES = 60000
