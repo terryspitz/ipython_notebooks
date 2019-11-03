@@ -6,6 +6,7 @@ class TriangleStack(object):
   Element = collections.namedtuple("Element", ["vertex", "triangle_offsets"])
   # vertex: Optional(List[float, 2])
   # triangle_offsets: Optional(List(int, 2))
+  ARRAY_SHAPE = [150, 6]
   
   def __init__(self, elements):
     self._elements = elements
@@ -114,4 +115,36 @@ class TriangleStack(object):
 
     if debug:
       print("Done build_stack")
+    return cls(elements)
+
+  @property
+  def array(self):
+    element_list = [[1.0 if vertex is not None else 0.0,
+                    vertex[0] if vertex is not None else 0.0,
+                    vertex[1] if vertex is not None else 0.0,
+                    1.0 if offsets is not None else 0.0,
+                    float(offsets[0]) if offsets is not None else 0.0,
+                    float(offsets[1]) if offsets is not None else 0.0
+                   ] for vertex, offsets in self._elements]
+    if len(element_list)>self.ARRAY_SHAPE[0]:
+      print("Too many elements: %d, truncating to %d" % (len(elements_list), self.ARRAY_SHAPE[0]))
+      element_list = element_list[:self.ARRAY_SHAPE[0]]
+    else:
+      element_list += [[0.0]*6] * (self.ARRAY_SHAPE[0]-len(element_list))
+    nparray = np.array(element_list)
+    assert list(nparray.shape) == self.ARRAY_SHAPE, "%s!=%s" % (nparray.shape, self.ARRAY_SHAPE)
+    return nparray
+
+  @classmethod    
+  def from_array(cls, nparray):
+    assert list(nparray.shape) == cls.ARRAY_SHAPE, "%s!=%s" % (nparray.shape, cls.ARRAY_SHAPE)
+    elements = []
+    for i in range(0, nparray.shape[0]):
+      is_vertex = nparray[i, 0]>0.5
+      is_triangle = nparray[i, 3]>0.5
+      if not is_vertex and not is_triangle:
+        break
+      elements.append(TriangleStack.Element(
+          [nparray[i, 1], nparray[i, 2]] if is_vertex else None,
+          [max(0, int(nparray[i, 4])), max(0, int(nparray[i, 5]))] if is_triangle else None))
     return cls(elements)
