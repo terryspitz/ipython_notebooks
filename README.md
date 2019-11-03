@@ -16,7 +16,7 @@
 
     ![IoT](IoT.jpg)
 
-5. <a name="fontvolve"></a>[Fontvolve](fontvolve.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
+5. <a name="fontvolve"></a>[Fontvolve](deeper/fontvolve.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
 
     ![E](fontvolve/fontE.png)
 
