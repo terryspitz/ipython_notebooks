@@ -16,14 +16,14 @@
 
     ![IoT](IoT.jpg)
 
-5. <a name="fontvolve"></a>[Fontvolve](deeper/fontvolve.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
+5. <a name="fontvolve"></a>[Fontvolve](fontvolve/fontvolve.ipynb) and <a name="fontvolve"></a>[Fontvolve using TF](fontvolve/fontvolve-TF.ipynb): Generic algorithm to evolve a letter outline.  Can you tell what this one is??  
 
     ![E](fontvolve/fontE.png)
 
 6. <a name="deeperfont"></a>[deeperfont](https://github.com/terryspitz/ipython_notebooks/tree/master/deeper): Neural Network attempt at the font problem.  Using [Keras](https://keras.io/) and [Tensorflow](https://www.tensorflow.org/), my small network attempts to capture the structure of a set of letters and numbers from a single font.  
 
-    ![deeper](deeper/deep1.png)
-    ![deeper](deeper/deep100.png)
+    ![deeper](deeper/png/deep1.png)
+    ![deeper](deeper/png/deep100.png)
 
 7. [Make-Taeuber-Arp](Make-Taeuber-Arp.ipynb): An art-generator in the style of Sophie Taeuber-Arp.... inspired by her [Google Doodle](https://www.google.com/doodles/sophie-taeuber-arps-127th-birthday).
 

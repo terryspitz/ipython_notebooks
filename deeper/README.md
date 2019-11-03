@@ -1,7 +1,7 @@
 # Deeperfont
 
-![deep1](deep1.png)
-![deep100](deep100.png)
+![deep1](png/deep1.png)
+![deep100](png/deep100.png)
 
 Deeperfont is a Neural Network attempt at the 'Font Problem' - that is, how to capture the essence of a font in such a way as to generalise to unseen glyphs and to allow interpolation between different fonts.  This problem was noted as early as 1979 when Donald Knuth wrote the first version of [MetaFont](https://en.wikipedia.org/wiki/Metafont).
 
