@@ -38,4 +38,6 @@ This dense representation encodes all points and triangles efficiently which sho
 1. https://pypi.python.org/pypi/FontTools
 1. https://www.arxiv-vanity.com/papers/1809.02257/ Representing Images in 200 Bytes: Compression via Triangulation
 1. https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Offsets_(a.k.a._stroking)_of_B%C3%A9zier_curves
+1. https://github.com/IShengFang/TypographyResearchCollection?tab=readme-ov-file Overview of papers in the field
+
 
